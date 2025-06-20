@@ -1,0 +1,103 @@
+== XScanner Report for https://batangkab.go.id/ ==
+
+[INFO] Title: Website Pemerintah Kabupaten Batang
+[INFO] AKTIF | Usia: Tidak diketahui | https://batangkab.go.id/
+[INFO] Current URL: https://batangkab.go.id/
+[DEBUG] Ditemukan 188 tag <a>
+
+[*] Searching for Admin Panel...
+[+] Found Admin Panel at https://batangkab.go.id/admin/
+[+] Found Admin Panel at https://batangkab.go.id/controlpanel/
+[+] Found Admin Panel at https://batangkab.go.id/cpanel/
+[*] Terdeteksi CPanel, menjalankan brute force...
+
+[*] Memulai brute-force CPanel pada: https://batangkab.go.id/cpanel
+[FOUND] Login CPanel berhasil: admin:admin
+
+[SCAN] https://berita.batangkab.go.id/?p=1&id=13772
+[-] No SQLi found: https://berita.batangkab.go.id/?p=1&id=13772
+[-] No XSS found: https://berita.batangkab.go.id/?p=1&id=13772
+[-] No Directory Traversal found: https://berita.batangkab.go.id/?p=1&id=13772
+[-] No XXE found: https://berita.batangkab.go.id/?p=1&id=13772
+[+] Clickjacking found: https://berita.batangkab.go.id/?p=1&id=13772
+[-] No RCE found: https://berita.batangkab.go.id/?p=1&id=13772
+[-] No LFI found: https://berita.batangkab.go.id/?p=1&id=13772
+[-] No LFI found: https://berita.batangkab.go.id/?p=1&id=13772
+
+[SCAN] https://batangkab.go.id/?p=2&id=22
+[-] No SQLi found: https://batangkab.go.id/?p=2&id=22
+[-] No XSS found: https://batangkab.go.id/?p=2&id=22
+[-] No Directory Traversal found: https://batangkab.go.id/?p=2&id=22
+[-] No XXE found: https://batangkab.go.id/?p=2&id=22
+[-] No Clickjacking found: https://batangkab.go.id/?p=2&id=22
+[-] No RCE found: https://batangkab.go.id/?p=2&id=22
+[-] No LFI found: https://batangkab.go.id/?p=2&id=22
+[-] No LFI found: https://batangkab.go.id/?p=2&id=22
+
+[SCAN] https://jdih.batangkab.go.id/
+[-] No XSS found: https://jdih.batangkab.go.id/
+[-] No Directory Traversal found: https://jdih.batangkab.go.id/
+[-] No XXE found: https://jdih.batangkab.go.id/
+[+] Clickjacking found: https://jdih.batangkab.go.id/
+[-] No RCE found: https://jdih.batangkab.go.id/
+
+[SCAN] https://batangkab.go.id/?p=2&id=28
+[-] No SQLi found: https://batangkab.go.id/?p=2&id=28
+[-] No XSS found: https://batangkab.go.id/?p=2&id=28
+[-] No Directory Traversal found: https://batangkab.go.id/?p=2&id=28
+[-] No XXE found: https://batangkab.go.id/?p=2&id=28
+[-] No Clickjacking found: https://batangkab.go.id/?p=2&id=28
+[-] No RCE found: https://batangkab.go.id/?p=2&id=28
+[-] No LFI found: https://batangkab.go.id/?p=2&id=28
+[-] No LFI found: https://batangkab.go.id/?p=2&id=28
+
+[SCAN] https://www.youtube.com/watch?v=Gc-3py6n784
+[-] No SQLi found: https://www.youtube.com/watch?v=Gc-3py6n784
+[-] No XSS found: https://www.youtube.com/watch?v=Gc-3py6n784
+[-] No Directory Traversal found: https://www.youtube.com/watch?v=Gc-3py6n784
+[-] No XXE found: https://www.youtube.com/watch?v=Gc-3py6n784
+[-] No Clickjacking found: https://www.youtube.com/watch?v=Gc-3py6n784
+[-] No RCE found: https://www.youtube.com/watch?v=Gc-3py6n784
+[-] No LFI found: https://www.youtube.com/watch?v=Gc-3py6n784
+
+[SCAN] https://berita.batangkab.go.id/?p=1&id=12212
+[-] No SQLi found: https://berita.batangkab.go.id/?p=1&id=12212
+[-] No XSS found: https://berita.batangkab.go.id/?p=1&id=12212
+[-] No Directory Traversal found: https://berita.batangkab.go.id/?p=1&id=12212
+[-] No XXE found: https://berita.batangkab.go.id/?p=1&id=12212
+[+] Clickjacking found: https://berita.batangkab.go.id/?p=1&id=12212
+[-] No RCE found: https://berita.batangkab.go.id/?p=1&id=12212
+[-] No LFI found: https://berita.batangkab.go.id/?p=1&id=12212
+[-] No LFI found: https://berita.batangkab.go.id/?p=1&id=12212
+
+[SCAN] https://berita.batangkab.go.id/?p=1&id=13879
+[-] No SQLi found: https://berita.batangkab.go.id/?p=1&id=13879
+[-] No XSS found: https://berita.batangkab.go.id/?p=1&id=13879
+[-] No Directory Traversal found: https://berita.batangkab.go.id/?p=1&id=13879
+[-] No XXE found: https://berita.batangkab.go.id/?p=1&id=13879
+[+] Clickjacking found: https://berita.batangkab.go.id/?p=1&id=13879
+[-] No RCE found: https://berita.batangkab.go.id/?p=1&id=13879
+[-] No LFI found: https://berita.batangkab.go.id/?p=1&id=13879
+[-] No LFI found: https://berita.batangkab.go.id/?p=1&id=13879
+
+[SCAN] https://batangkab.go.id/?p=2&id=16
+[-] No SQLi found: https://batangkab.go.id/?p=2&id=16
+[-] No XSS found: https://batangkab.go.id/?p=2&id=16
+[-] No Directory Traversal found: https://batangkab.go.id/?p=2&id=16
+[-] No XXE found: https://batangkab.go.id/?p=2&id=16
+[-] No Clickjacking found: https://batangkab.go.id/?p=2&id=16
+[-] No RCE found: https://batangkab.go.id/?p=2&id=16
+[-] No LFI found: https://batangkab.go.id/?p=2&id=16
+[-] No LFI found: https://batangkab.go.id/?p=2&id=16
+
+[SCAN] https://profil.batangkab.go.id/?p=18&id=84
+[-] No SQLi found: https://profil.batangkab.go.id/?p=18&id=84
+[-] No XSS found: https://profil.batangkab.go.id/?p=18&id=84
+[-] No Directory Traversal found: https://profil.batangkab.go.id/?p=18&id=84
+[-] No XXE found: https://profil.batangkab.go.id/?p=18&id=84
+[+] Clickjacking found: https://profil.batangkab.go.id/?p=18&id=84
+[-] No RCE found: https://profil.batangkab.go.id/?p=18&id=84
+[-] No LFI found: https://profil.batangkab.go.id/?p=18&id=84
+[-] No LFI found: https://profil.batangkab.go.id/?p=18&id=84
+
+[SCAN] http://portal.batangkab.go.id/spgdt/
