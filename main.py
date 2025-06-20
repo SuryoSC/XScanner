@@ -16,13 +16,7 @@ from rich.panel import Panel
 from colorama import init, Fore
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import undetected_chromedriver as uc
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from requests.auth import HTTPBasicAuth
-from requests_html import HTMLSession
-import shutil
 import whois
 import datetime
 import logging
@@ -145,89 +139,36 @@ def is_url_alive(url):
 
 def extract_links(url, log_file, force_headless=False):
     links = set()
-    driver = None
     try:
-        options = uc.ChromeOptions()
-        options.add_argument("--disable-blink-features=AutomationControlled")
-        options.add_argument("--disable-infobars")
-        options.add_argument("--disable-dev-shm-usage")
-        options.add_argument("--disable-extensions")
-        options.add_argument("--no-first-run")
-        options.add_argument("--no-default-browser-check")
-        options.add_argument("--disable-gpu")
-        options.add_argument("--no-sandbox")
-        options.add_argument("--window-size=1920,1080")
-        options.add_argument("--start-maximized")
-        options.add_argument("--ignore-certificate-errors")
-        options.add_argument("--allow-running-insecure-content")
-        options.add_argument("--disable-popup-blocking")
-        options.add_argument("--disable-features=IsolateOrigins,site-per-process")
-        options.add_argument("--disable-application-cache")
-        options.add_argument("--disk-cache-size=0")
-        options.add_argument("--disable-background-networking")
-        options.add_argument("--disable-sync")
-        options.add_argument("--metrics-recording-only")
-        options.add_argument("--disable-default-apps")
-        options.add_argument("--mute-audio")
-        options.add_argument("--incognito")
-        options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                             "AppleWebKit/537.36 (KHTML, like Gecko) "
-                             "Chrome/137.0.0.0 Safari/537.36")
+        res = requests.get(url, headers=headers, timeout=10, verify=False)
+        if res.status_code != 200:
+            log_write(log_file, f"[ERROR] Gagal membuka halaman: {url}", "red")
+            return []
 
-        if force_headless or not shutil.which("x-terminal-emulator"):
-            options.add_argument("--headless=new")
+        soup = BeautifulSoup(res.text, 'html.parser')
+        title = soup.title.string if soup.title else "Tidak ada title"
+        log_write(log_file, f"[INFO] Title: {title}", "magenta")
 
-        driver = uc.Chrome(options=options, use_subprocess=True)
-        driver.set_page_load_timeout(60)
-        driver.get(url)
-        time.sleep(10)
-
-        log_write(log_file, f"[INFO] Title: {driver.title}", "magenta")
         domain = urlparse(url).netloc
         age = get_domain_age(domain)
         alive = is_url_alive(url)
         status = "AKTIF" if alive else "MATI"
         log_write(log_file, f"[INFO] {status} | Usia: {age} | {url}", "green" if alive else "red")
-        log_write(log_file, f"[INFO] Current URL: {driver.current_url}", "cyan")
+        log_write(log_file, f"[INFO] Current URL: {url}", "cyan")
 
-        a_tags = driver.find_elements(By.TAG_NAME, "a")
+        a_tags = soup.find_all('a', href=True)
         log_write(log_file, f"[DEBUG] Ditemukan {len(a_tags)} tag <a>\n", "cyan")
+
         for a in a_tags:
-            href = a.get_attribute("href")
-            if href:
-                full_url = urljoin(url, href)
-                if urlparse(full_url).scheme in ["http", "https"]:
-                    links.add(full_url)
+            href = a['href']
+            full_url = urljoin(url, href)
+            if urlparse(full_url).scheme in ["http", "https"]:
+                links.add(full_url)
 
     except Exception as e:
-        log_write("debug.log", f"[ERROR] UC failed, fallback: {e}", "red")
-        try:
-            session = HTMLSession()
-            r = session.get(url)
-            r.html.render(timeout=30)
-
-            domain = urlparse(url).netloc
-            age = get_domain_age(domain)
-            alive = is_url_alive(url)
-            status = "AKTIF" if alive else "MATI"
-            log_write(log_file, f"[INFO] {status} | Usia: {age} | {url}", "green" if alive else "red")
-
-            for a in r.html.absolute_links:
-                if urlparse(a).scheme in ["http", "https"]:
-                    links.add(a)
-            session.close()
-        except Exception as e2:
-            log_write("debug.log", f"[ERROR] Fallback requests-html gagal: {e2}", "red")
-    finally:
-        try:
-            if driver:
-                driver.quit()
-        except:
-            pass
+        log_write(log_file, f"[ERROR] Gagal extract link: {e}", "red")
 
     return list(links)
-
-
 
 def find_admin_panel(base_url, log_file):
     def cpanel_cracker(base_url, user_list, pass_list, log_file):
@@ -435,6 +376,11 @@ def main():
         scan_rce(link, param_names, log_file)
         for param in param_names:
             scan_lfi(link, param, log_file)
+
+    print()
+    print("──────────────────────────────────────────────────────────")
+    print()
+    print(colored(f"Scan selesai! Lihat hasilnya di result/{sanitize_filename(target)}.txt", "green"))
 
 if __name__ == "__main__":
     main()
