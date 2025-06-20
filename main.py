@@ -399,7 +399,7 @@ def sanitize_filename(url):
 def main():
     os.system('cls' if os.name == 'nt' else 'clear')
     banner = pyfiglet.figlet_format(" XScanner ", font="slant")
-    console.print(Panel(Text(banner, style="bold red"), subtitle="[bold cyan]V2.0[/bold cyan]", expand=False))
+    console.print(Panel(Text(banner, style="bold red"), subtitle="[bold cyan]V1.0[/bold cyan]", expand=False))
     print()
     target = input("Masukkan URL target: ").strip()
     if not target.startswith("http"):
