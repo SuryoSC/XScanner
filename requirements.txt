@@ -1,0 +1,10 @@
+requests
+beautifulsoup4
+termcolor
+colorama
+rich
+pyfiglet
+selenium
+undetected-chromedriver
+requests-html
+python-whois
