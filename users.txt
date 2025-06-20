@@ -1,4 +1,3 @@
-cek push
 admin
 administrator
 root
