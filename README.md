@@ -20,6 +20,14 @@
 
 ---
 
+## 🖼️ Contoh Hasil Scan
+
+> Output ditampilkan secara berwarna di terminal dan disimpan otomatis dalam file `.txt`.
+
+![XScanner Terminal Output](screenshots/xscanner-output.png)
+
+---
+
 ## 📦 Instalasi
 
 ### 1. Kloning repositori:
@@ -33,7 +41,7 @@ cd XScanner
 pip install -r requirements.txt
 ```
 
-Jika tidak ada file `requirements.txt`, install manual:
+Jika tidak dapat menginstall `requirements.txt`, install manual:
 ```bash
 pip install requests beautifulsoup4 termcolor colorama rich pyfiglet selenium undetected-chromedriver requests-html python-whois
 ```
@@ -72,8 +80,10 @@ XScanner/
 ├── main.py
 ├── result/
 │   └── example_com.txt     # hasil scan tersimpan di sini
-├── users.txt               # (opsional) daftar username untuk brute-force CPanel
-├── password.txt            # (opsional) daftar password untuk brute-force CPanel
+├── screenshots/
+│   └── xscanner-output.png # contoh screenshot output
+├── users.txt               # daftar username untuk brute-force CPanel
+├── password.txt            # daftar password untuk brute-force CPanel
 └── README.md
 ```
 
