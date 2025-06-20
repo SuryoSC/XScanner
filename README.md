@@ -24,7 +24,7 @@
 
 > Output ditampilkan secara berwarna di terminal dan disimpan otomatis dalam file `.txt`.
 
-![XScanner Terminal Output](screenshots/xscanner-output.png)
+![XScanner Terminal Output](/screenshot/xscanner-output.png)
 
 ---
 
